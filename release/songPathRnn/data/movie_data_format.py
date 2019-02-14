@@ -130,13 +130,13 @@ def get_feature_vector(prev_entity, relation):
     type_feature_vector = ''
     # get the entity types of the vector
     if prev_entity in entity_type_map:
-        # print("prev_entity", prev_entity)
+        print("prev_entity", prev_entity)
         entity_types = entity_type_map[prev_entity]
-        # print("entity_types", entity_types)
+        print("entity_types", entity_types)
         # if len(entity_types) <= NUM_ENTITY_TYPES_SLOTS:
         # create the feature vector
         length = min(NUM_ENTITY_TYPES_SLOTS, len(entity_types))
-        extra_padding_length = NUM_ENTITY_TYPES_SLOTS - len(entity_types)
+        extra_padding_length = NUM_ENTITY_TYPES_SLOTS - length
         for i in xrange(extra_padding_length):
             type_feature_vector = type_feature_vector + str(entity_type_vocab['#PAD_TOKEN']) + ','
         type_feature_vector = type_feature_vector + get_entity_types_in_order(entity_types, length) + ','
