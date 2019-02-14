@@ -1,0 +1,67 @@
+Reading label vocab
+Done reading label vocab
+reading entity vocab
+Done reading entity vocab
+reading entity type vocab
+Done reading entity type vocab
+reading entity to type list
+Done reading entity to type list
+reading relation vocab
+Done reading relation vocab
+Processing input/positive_matrix.tsv.translated
+Processing input/negative_matrix.tsv.translated
+Processing input/test_matrix.tsv.translated
+Max length is 6
+pad features: 4,4,7
+Output dir changed to output/train
+input/positive_matrix.tsv.translated
+Processed 0 entity pairs
+Output dir changed to output/train
+input/negative_matrix.tsv.translated
+Processed 0 entity pairs
+Output dir changed to output/test
+input/test_matrix.tsv.translated
+Processed 0 entity pairs
+Processed 10000 entity pairs
+Missed entity pair count 0
+train
+converting train to torch files
+output/train/train.txt.10.int
+output/train/train.txt.11.int
+output/train/train.txt.12.int
+output/train/train.txt.13.int
+output/train/train.txt.14.int
+output/train/train.txt.15.int
+output/train/train.txt.16.int
+output/train/train.txt.19.int
+output/train/train.txt.1.int
+output/train/train.txt.2.int
+output/train/train.txt.3.int
+output/train/train.txt.4.int
+output/train/train.txt.5.int
+output/train/train.txt.6.int
+output/train/train.txt.7.int
+output/train/train.txt.8.int
+output/train/train.txt.9.int
+test
+converting test to torch files
+output/test/test.txt.10.int
+output/test/test.txt.11.int
+output/test/test.txt.12.int
+output/test/test.txt.13.int
+output/test/test.txt.15.int
+output/test/test.txt.16.int
+output/test/test.txt.1.int
+output/test/test.txt.20.int
+output/test/test.txt.2.int
+output/test/test.txt.3.int
+output/test/test.txt.4.int
+output/test/test.txt.5.int
+output/test/test.txt.6.int
+output/test/test.txt.7.int
+output/test/test.txt.8.int
+output/test/test.txt.9.int
+train
+test
+10000
+20000

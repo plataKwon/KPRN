@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-python movie_data_format.py -i input -d output -o 0 -g 0 -e 0 -m 6 -t 1
+python2 movie_data_format.py -i input -d output -o 0 -g 0 -e 0 -m 6 -t 1
 
 
 data_set=("train" "test")
@@ -41,6 +41,6 @@ do
 	done
 done
 
-python movie_data_list.py movie_output_data/rate
+python2 movie_data_list.py output
 
-python format_entity_pair.py "test.list"
+python2 format_entity_pair.py "test.list"

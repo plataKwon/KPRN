@@ -16,7 +16,7 @@ import gzip
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input_dir', required=True)
-parser.add_argument('-d', '--output_dir''', required=True)
+parser.add_argument('-d', '--output_dir', required=True)
 parser.add_argument('-o', '--only_relation', required=True,
                     help="This option to be used when data doesnot have entities")
 parser.add_argument('-g', '--get_only_relation', required=True,
@@ -148,7 +148,7 @@ def get_feature_vector(prev_entity, relation):
     if prev_entity in entity_vocab:
         type_feature_vector = type_feature_vector + str(entity_vocab[prev_entity]) + ','
     else:
-        type_feature_vector = type_feature_vector + str(entity_vocab['#UNK_ENTITY']) + ','
+        type_feature_vector = type_feature_vector + str(entity_type_vocab['#UNK_ENTITY_TYPE']) + ','
     # Now add the id for the relation
     if relation in relation_vocab:
         type_feature_vector = type_feature_vector + str(relation_vocab[relation])
@@ -169,7 +169,7 @@ else:
             pad_feature = pad_feature + str(entity_type_vocab['#PAD_TOKEN'])
         else:
             pad_feature = pad_feature + ',' + str(entity_type_vocab['#PAD_TOKEN'])
-    pad_feature = pad_feature + ',' + str(entity_vocab['#PAD_TOKEN'])
+    pad_feature = pad_feature + ',' + str(entity_type_vocab['#PAD_TOKEN'])
     pad_feature = pad_feature + ',' + str(relation_vocab['#PAD_TOKEN'])
 
 print("pad features:", pad_feature)

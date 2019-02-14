@@ -1,9 +1,9 @@
 
-#********************************************************************
-#Source: https://github.com/rajarshd/ChainsofReasoning
-#See Chains of Reasoning over Entities, Relations, and Text using Recurrent Neural Networks
-#https://arxiv.org/abs/1607.01426
-#**********************************************************************
+--#********************************************************************
+--#Source: https://github.com/rajarshd/ChainsofReasoning
+--#See Chains of Reasoning over Entities, Relations, and Text using Recurrent Neural Networks
+--#https://arxiv.org/abs/1607.01426
+--#**********************************************************************
 -- Shamelessly copying script by David Belanger.
 
 require 'os'

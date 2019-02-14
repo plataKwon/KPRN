@@ -1,0 +1,103 @@
+experiment_dir ../
+experiment_file ..//0.txt
+output_dir results/lse
+data_dir ../data/output/
+gpu_id 0
+numEpoch 20
+numEntityTypes 1
+includeEntityTypes 1
+includeEntity 1
+numFeatureTemplates 3
+ relationEmbeddingDim 50
+entityTypeEmbeddingDim  50
+entityEmbeddingDim  100
+rnnHidSize 250
+topK 2
+K 5
+Learning Rate 1e-3
+Learning Rate Decay 0.0167
+rnnType  rnn
+epsilon 1e-8
+gradClipNorm 5
+gradientStepCounter 100000
+saveFrequency 1
+batchSize 128
+useGradClip 1
+package_path
+useAdam 1
+paramInit 0.1
+evaluationFrequency 5
+createExptDir 1
+useReLU 1
+l2 1e-3
+rnnInitialization 1
+regularize 0
+numLayers 1
+useDropout 0
+relationVocabSize 9
+entityVocabSize 2851220
+entityTypeVocabSize 6
+dropout 0.3
+Executing:
+th ..//model/OneModel.lua -dataDir ../data/output/ -tokenFeatures 0 -minibatch 128 -gpuid 0 -learningRate 1e-3 -l2 1e-3 -numEpochs 20 -useAdam 1 -saveFrequency 1 -evaluationFrequency 5 -model results/lse/2019-02-13-14-25-17/listen/model -rnnType rnn -exptDir results/lse/2019-02-13-14-25-17/listen -relationVocabSize 9 -entityTypeVocabSize 6 -relationEmbeddingDim 50 -entityTypeEmbeddingDim 50 -numFeatureTemplates 3 -numEntityTypes 1 -includeEntityTypes 1 -includeEntity 1 -entityVocabSize 2851220 -entityEmbeddingDim 100 -rnnHidSize 250 -topK 2 -epsilon 1e-8 -gradClipNorm 5 -gradientStepCounter 100000 -useGradClip 1 -paramInit 0.1 -createExptDir 1 -useReLU 1 -rnnInitialization 1 -learningRateDecay 0.0167 -regularize 0 -numLayers 1 -useDropout 0 -dropout 0.3 -K 5
+Log file is results/lse/2019-02-13-14-25-17/listen/log.txt
+USING GPU	
+nn.Sequential {
+  [input -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> output]
+  (1): nn.SplitTable
+  (2): nn.Sequential {
+    [input -> (1) -> (2) -> output]
+    (1): nn.ConcatTableNoGrad {
+      input
+        |`-> (1): nn.Sequential {
+        |      [input -> (1) -> (2) -> (3) -> output]
+        |      (1): nn.NarrowTable
+        |      (2): nn.ParallelTable {
+        |        input
+        |           `-> (1): nn.LookupTable
+        |           ... -> output
+        |      }
+        |      (3): nn.CAddTable
+        |    }
+        |`-> (2): nn.Sequential {
+        |      [input -> (1) -> (2) -> output]
+        |      (1): nn.SelectTable(2)
+        |      (2): nn.LookupTable
+        |    }
+        |`-> (3): nn.Sequential {
+        |      [input -> (1) -> (2) -> output]
+        |      (1): nn.SelectTable(-1)
+        |      (2): nn.LookupTable
+        |    }
+         ... -> output
+    }
+    (2): nn.JoinTable
+  }
+  (3): nn.SplitTable
+  (4): nn.Sequencer @ nn.Recurrence @ nn.MaskZero @ nn.Sequential {
+    [input -> (1) -> (2) -> (3) -> output]
+    (1): nn.ParallelTable {
+      input
+        |`-> (1): nn.Linear(200 -> 250)
+         `-> (2): nn.Linear(250 -> 250)
+         ... -> output
+    }
+    (2): nn.CAddTable
+    (3): nn.ReLU
+  }
+  (5): nn.SelectTable(-1)
+  (6): nn.Linear(250 -> 46)
+}
+Reducer is LogSumExp	
+use cuda:	true	
+reading file list from ../data/output//train.list	
+/home/hynsk.lee/eun/distro/install/bin/luajit: ../model/batcher/BatcherFileList.lua:25: bad argument #1 to 'lines' (../data/output//train.list: No such file or directory)
+stack traceback:
+	[C]: in function 'lines'
+	../model/batcher/BatcherFileList.lua:25: in function '__init'
+	...ynsk.lee/eun/distro/install/share/lua/5.1/torch/init.lua:91: in function <...ynsk.lee/eun/distro/install/share/lua/5.1/torch/init.lua:87>
+	[C]: in function 'BatcherFileList'
+	..//model/OneModel.lua:326: in main chunk
+	[C]: in function 'dofile'
+	...eun/distro/install/lib/luarocks/rocks/trepl/scm-1/bin/th:150: in main chunk
+	[C]: at 0x00405d50
