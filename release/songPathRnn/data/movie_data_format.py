@@ -132,7 +132,7 @@ def get_feature_vector(prev_entity, relation):
     if prev_entity in entity_type_map:
         print("prev_entity", prev_entity)
         entity_types = entity_type_map[prev_entity]
-        print("entity_types", entity_types)
+        print("entity_types", entity_types, len(entity_types))
         # if len(entity_types) <= NUM_ENTITY_TYPES_SLOTS:
         # create the feature vector
         length = min(NUM_ENTITY_TYPES_SLOTS, len(entity_types))
@@ -141,8 +141,7 @@ def get_feature_vector(prev_entity, relation):
             type_feature_vector = type_feature_vector + str(entity_type_vocab['#PAD_TOKEN']) + ','
         type_feature_vector = type_feature_vector + get_entity_types_in_order(entity_types, length) + ','
     else:
-        for i in xrange(
-                NUM_ENTITY_TYPES_SLOTS):  # we dont have type for this entity the feature vector would be all UNKNOWN TYPE token
+        for i in xrange(NUM_ENTITY_TYPES_SLOTS):  # we dont have type for this entity the feature vector would be all UNKNOWN TYPE token
             type_feature_vector = type_feature_vector + str(entity_type_vocab['#UNK_ENTITY_TYPE']) + ','
     # NEW: add the id for the entity
     if prev_entity in entity_vocab:
@@ -262,7 +261,7 @@ for input_file_counter, input_file_name in enumerate(input_files):
                                 type_feature_vector = get_feature_vector_only_relation(relation)
                             else:
                                 type_feature_vector = get_feature_vector(prev_entity, relation)
-                            # print("type_feature_vector", type_feature_vector)
+                            print("type_feature_vector", type_feature_vector)
                             if token_counter == 0 and path_feature_vector == '':
                                 path_feature_vector = path_feature_vector + type_feature_vector
                             else:
