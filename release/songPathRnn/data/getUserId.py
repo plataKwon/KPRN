@@ -63,9 +63,9 @@ open(all_relation_id_output_file, 'w')
 for idx in range(song_min, song_max + 1) :
     entity_line = 's' + str(idx)
 
-    all_entity_id = entity_line + ' ' + str(idx)
+    all_entity_id = entity_line + '\t' + str(idx)
     all_entity_id = all_entity_id.strip()
-    entity_to_type = entity_line + ' ' + 'song'
+    entity_to_type = entity_line + '\t' + 'song'
     entity_to_type = entity_to_type.strip()
 
     with open(all_entity_id_output_file, 'a') as out:
@@ -76,9 +76,9 @@ for idx in range(song_min, song_max + 1) :
 for idx in range(user_min, user_max + 1) :
     entity_line = 'u' + str(idx)
 
-    all_entity_id = entity_line + ' ' + str(idx)
+    all_entity_id = entity_line + '\t' + str(idx)
     all_entity_id = all_entity_id.strip()
-    entity_to_type = entity_line + ' ' + 'user'
+    entity_to_type = entity_line + '\t' + 'user'
     entity_to_type = entity_to_type.strip()
 
     all_entity_id_output_file = vocab_dir+"/all_entity_id.txt"
@@ -90,7 +90,7 @@ for idx in range(user_min, user_max + 1) :
         eout.write(entity_to_type+'\n')
 
 for idx in range(relation_min, relation_max + 1) :
-    entity_line = 'r' + str(idx) + ' ' + str(idx - 1)
+    entity_line = 'r' + str(idx) + '\t' + str(idx - 1)
     entity_line = entity_line.strip()
 
     with open(all_relation_id_output_file, 'a') as out:
