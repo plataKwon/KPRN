@@ -104,7 +104,7 @@ def get_entity_types_in_order(entity_types, length):
     assert (length <= len(entity_types))
     type_int_list = []
     for entity_type in entity_types:
-        if entity_type in entity_type_vocab:
+	if entity_type in entity_type_vocab:
             type_int_list.append(entity_type_vocab[entity_type])
         else:
             type_int_list.append(entity_type_vocab['#UNK_ENTITY_TYPE'])
@@ -133,15 +133,17 @@ def get_feature_vector(prev_entity, relation):
         print("prev_entity", prev_entity)
         entity_types = entity_type_map[prev_entity]
         print("entity_types", entity_types, len(entity_types))
-        # if len(entity_types) <= NUM_ENTITY_TYPES_SLOTS:
+	# if len(entity_types) <= NUM_ENTITY_TYPES_SLOTS:
         # create the feature vector
         length = min(NUM_ENTITY_TYPES_SLOTS, len(entity_types))
         extra_padding_length = NUM_ENTITY_TYPES_SLOTS - length
         for i in xrange(extra_padding_length):
             type_feature_vector = type_feature_vector + str(entity_type_vocab['#PAD_TOKEN']) + ','
         type_feature_vector = type_feature_vector + get_entity_types_in_order(entity_types, length) + ','
+        print("type_feature_vector in get_feature_vector : ", type_feature_vector)
     else:
-        for i in xrange(NUM_ENTITY_TYPES_SLOTS):  # we dont have type for this entity the feature vector would be all UNKNOWN TYPE token
+        for i in xrange(
+                NUM_ENTITY_TYPES_SLOTS):  # we dont have type for this entity the feature vector would be all UNKNOWN TYPE token
             type_feature_vector = type_feature_vector + str(entity_type_vocab['#UNK_ENTITY_TYPE']) + ','
     # NEW: add the id for the entity
     if prev_entity in entity_vocab:
@@ -261,7 +263,6 @@ for input_file_counter, input_file_name in enumerate(input_files):
                                 type_feature_vector = get_feature_vector_only_relation(relation)
                             else:
                                 type_feature_vector = get_feature_vector(prev_entity, relation)
-                            print("type_feature_vector", type_feature_vector)
                             if token_counter == 0 and path_feature_vector == '':
                                 path_feature_vector = path_feature_vector + type_feature_vector
                             else:
