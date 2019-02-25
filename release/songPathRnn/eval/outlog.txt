@@ -1,0 +1,154 @@
+test
+use cuda:	true	
+reading file list from ../data/output/test.list	
+../data/output/test/test.txt.9.torch	
+{
+  labels : DoubleTensor - size: 5
+  data : DoubleTensor - size: 5x9x6x3
+  classId : 1
+}
+../data/output/test/test.txt.15.torch	
+{
+  labels : DoubleTensor - size: 2
+  data : DoubleTensor - size: 2x15x6x3
+  classId : 1
+}
+../data/output/test/test.txt.5.torch	
+{
+  labels : DoubleTensor - size: 3
+  data : DoubleTensor - size: 3x5x6x3
+  classId : 1
+}
+../data/output/test/test.txt.29.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x29x6x3
+  classId : 1
+}
+../data/output/test/test.txt.3.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x3x6x3
+  classId : 1
+}
+../data/output/test/test.txt.10.torch	
+{
+  labels : DoubleTensor - size: 7
+  data : DoubleTensor - size: 7x10x6x3
+  classId : 1
+}
+../data/output/test/test.txt.24.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x24x6x3
+  classId : 1
+}
+../data/output/test/test.txt.2.torch	
+{
+  labels : DoubleTensor - size: 2
+  data : DoubleTensor - size: 2x2x6x3
+  classId : 1
+}
+../data/output/test/test.txt.14.torch	
+{
+  labels : DoubleTensor - size: 7
+  data : DoubleTensor - size: 7x14x6x3
+  classId : 1
+}
+../data/output/test/test.txt.7.torch	
+{
+  labels : DoubleTensor - size: 3
+  data : DoubleTensor - size: 3x7x6x3
+  classId : 1
+}
+../data/output/test/test.txt.28.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x28x6x3
+  classId : 1
+}
+../data/output/test/test.txt.1.torch	
+{
+  labels : DoubleTensor - size: 5
+  data : DoubleTensor - size: 5x1x6x3
+  classId : 1
+}
+../data/output/test/test.txt.16.torch	
+{
+  labels : DoubleTensor - size: 3
+  data : DoubleTensor - size: 3x16x6x3
+  classId : 1
+}
+../data/output/test/test.txt.22.torch	
+{
+  labels : DoubleTensor - size: 2
+  data : DoubleTensor - size: 2x22x6x3
+  classId : 1
+}
+../data/output/test/test.txt.12.torch	
+{
+  labels : DoubleTensor - size: 4
+  data : DoubleTensor - size: 4x12x6x3
+  classId : 1
+}
+../data/output/test/test.txt.18.torch	
+{
+  labels : DoubleTensor - size: 2
+  data : DoubleTensor - size: 2x18x6x3
+  classId : 1
+}
+../data/output/test/test.txt.20.torch	
+{
+  labels : DoubleTensor - size: 3
+  data : DoubleTensor - size: 3x20x6x3
+  classId : 1
+}
+../data/output/test/test.txt.11.torch	
+{
+  labels : DoubleTensor - size: 4
+  data : DoubleTensor - size: 4x11x6x3
+  classId : 1
+}
+../data/output/test/test.txt.8.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x8x6x3
+  classId : 1
+}
+../data/output/test/test.txt.4.torch	
+{
+  labels : DoubleTensor - size: 3
+  data : DoubleTensor - size: 3x4x6x3
+  classId : 1
+}
+../data/output/test/test.txt.6.torch	
+{
+  labels : DoubleTensor - size: 5
+  data : DoubleTensor - size: 5x6x6x3
+  classId : 1
+}
+../data/output/test/test.txt.21.torch	
+{
+  labels : DoubleTensor - size: 1
+  data : DoubleTensor - size: 1x21x6x3
+  classId : 1
+}
+ Done reading file list from ../data/output/test.list	
+using model:	../run_scripts/results/lse/2019-02-25-10-33-46/listen/model-latest	
+load model...	
+Reducer is max pool	
+start predicting...	
+total cost time:	0	
+test
+user numbers: 24
+resort 0
+sorted done!
+eval_score.sh: line 3:  : command not found
+evaluate on alpha
+eval with alpha: 0.0
+Traceback (most recent call last):
+  File "eval_score.py", line 64, in <module>
+    sample_reader = codecs.open("test_samples/test_samples_"+str(alpha)+".txt", mode="r", encoding="utf-8")
+  File "/usr/lib/python3.5/codecs.py", line 895, in open
+    file = builtins.open(filename, mode, buffering)
+FileNotFoundError: [Errno 2] No such file or directory: 'test_samples/test_samples_0.0.txt'

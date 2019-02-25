@@ -1,4 +1,3 @@
-
 #********************************************************************
 #Source: https://github.com/rajarshd/ChainsofReasoning
 #See Chains of Reasoning over Entities, Relations, and Text using Recurrent Neural Networks
@@ -17,13 +16,13 @@ includeEntityTypes=1
 includeEntity=1
 numEpoch=20
 numFeatureTemplates=3
-rnnHidSize=250
-relationEmbeddingDim=50
-entityTypeEmbeddingDim=50
-entityEmbeddingDim=100
-relationVocabSize=9
-entityVocabSize=2851220
-entityTypeVocabSize=6
+rnnHidSize=100
+relationEmbeddingDim=10
+entityTypeEmbeddingDim=10
+entityEmbeddingDim=50
+relationVocabSize=10
+entityVocabSize=30
+entityTypeVocabSize=10
 topK=2 #0 is max; 1 is top K , 2 is LogSumExp
 K=5
 regularize=0
